@@ -1,0 +1,16 @@
+{
+  "careers": [
+    {
+      "id": "1",
+      "name": "Programación"
+    },
+    {
+        "id": "2",
+        "name": "Mantenimiento Industrial"
+    },
+    {
+        "id": "3",
+        "name": "Hotelería"
+    }
+  ]
+}

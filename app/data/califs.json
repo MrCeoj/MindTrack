@@ -1,0 +1,12 @@
+{
+  "grades": [
+    {
+      "id": "1",
+      "student_id": "1",
+      "group_id": "1",
+      "partial_1": 85.0,
+      "partial_2": 90.0,
+      "final_score": 87.5
+    }
+  ]
+}

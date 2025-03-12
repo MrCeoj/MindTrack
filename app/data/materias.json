@@ -1,0 +1,112 @@
+{
+  "subjects": [
+    {
+      "id": "1",
+      "name": "Programación Estructuradas",
+      "career_id": "1",
+      "semester": 2
+    },
+    {
+      "id": "2",
+      "name": "Estructuras de Datos",
+      "career_id": "1",
+      "semester": 2
+    },
+    {
+      "id": "3",
+      "name": "Bases de Datos",
+      "career_id": "1",
+      "semester": 4
+    },
+    {
+      "id": "4",
+      "name": "Ingeniería de Software",
+      "career_id": "1",
+      "semester": 4
+    },
+    {
+      "id": "5",
+      "name": "Desarrollo Web",
+      "career_id": "1",
+      "semester": 6
+    },
+    {
+      "id": "6",
+      "name": "Inteligencia Artificial",
+      "career_id": "1",
+      "semester": 6
+    },
+    {
+      "id": "7",
+      "name": "Mantenimiento Preventivo",
+      "career_id": "2",
+      "semester": 2
+    },
+    {
+      "id": "8",
+      "name": "Electrónica Básica",
+      "career_id": "2",
+      "semester": 2
+    },
+    {
+      "id": "9",
+      "name": "Sistemas Hidráulicos",
+      "career_id": "2",
+      "semester": 4
+    },
+    {
+      "id": "10",
+      "name": "Automatización Industrial",
+      "career_id": "2",
+      "semester": 4
+    },
+    {
+      "id": "11",
+      "name": "Gestión de Mantenimiento",
+      "career_id": "2",
+      "semester": 6
+    },
+    {
+      "id": "12",
+      "name": "Control de Calidad",
+      "career_id": "2",
+      "semester": 6
+    },
+    {
+      "id": "13",
+      "name": "Gestión Hotelera",
+      "career_id": "3",
+      "semester": 2
+    },
+    {
+      "id": "14",
+      "name": "Atención al Cliente",
+      "career_id": "3",
+      "semester": 2
+    },
+    {
+      "id": "15",
+      "name": "Marketing Turístico",
+      "career_id": "3",
+      "semester": 4
+    },
+    {
+      "id": "16",
+      "name": "Administración de Eventos",
+      "career_id": "3",
+      "semester": 4
+    },
+    {
+      "id": "17",
+      "name": "Gestión de Restaurantes",
+      "career_id": "3",
+      "semester": 6
+    },
+    {
+      "id": "18",
+      "name": "Planificación Turística",
+      "career_id": "3",
+      "semester": 6
+    }
+  ]
+}

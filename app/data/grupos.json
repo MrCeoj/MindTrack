@@ -1,0 +1,220 @@
+{
+    "groups": [
+      {
+        "id": "1",
+        "subject_id": "1",
+        "teacher_id": "8",
+        "schedule": "Lunes 10:00 - 12:00"
+      },
+      {
+        "id": "2",
+        "subject_id": "1",
+        "teacher_id": "9",
+        "schedule": "Martes 14:00 - 16:00"
+      },
+      {
+        "id": "3",
+        "subject_id": "2",
+        "teacher_id": "10",
+        "schedule": "Miércoles 08:00 - 10:00"
+      },
+      {
+        "id": "4",
+        "subject_id": "2",
+        "teacher_id": "8",
+        "schedule": "Jueves 12:00 - 14:00"
+      },
+      {
+        "id": "5",
+        "subject_id": "3",
+        "teacher_id": "9",
+        "schedule": "Viernes 10:00 - 12:00"
+      },
+      {
+        "id": "6",
+        "subject_id": "3",
+        "teacher_id": "10",
+        "schedule": "Lunes 14:00 - 16:00"
+      },
+      {
+        "id": "7",
+        "subject_id": "4",
+        "teacher_id": "8",
+        "schedule": "Martes 08:00 - 10:00"
+      },
+      {
+        "id": "8",
+        "subject_id": "4",
+        "teacher_id": "9",
+        "schedule": "Miércoles 12:00 - 14:00"
+      },
+      {
+        "id": "9",
+        "subject_id": "5",
+        "teacher_id": "10",
+        "schedule": "Jueves 10:00 - 12:00"
+      },
+      {
+        "id": "10",
+        "subject_id": "5",
+        "teacher_id": "8",
+        "schedule": "Viernes 14:00 - 16:00"
+      },
+      {
+        "id": "11",
+        "subject_id": "6",
+        "teacher_id": "9",
+        "schedule": "Lunes 08:00 - 10:00"
+      },
+      {
+        "id": "12",
+        "subject_id": "6",
+        "teacher_id": "10",
+        "schedule": "Martes 12:00 - 14:00"
+      },
+      {
+        "id": "13",
+        "subject_id": "7",
+        "teacher_id": "8",
+        "schedule": "Miércoles 10:00 - 12:00"
+      },
+      {
+        "id": "14",
+        "subject_id": "7",
+        "teacher_id": "9",
+        "schedule": "Jueves 14:00 - 16:00"
+      },
+      {
+        "id": "15",
+        "subject_id": "8",
+        "teacher_id": "10",
+        "schedule": "Viernes 08:00 - 10:00"
+      },
+      {
+        "id": "16",
+        "subject_id": "8",
+        "teacher_id": "8",
+        "schedule": "Lunes 12:00 - 14:00"
+      },
+      {
+        "id": "17",
+        "subject_id": "9",
+        "teacher_id": "9",
+        "schedule": "Martes 10:00 - 12:00"
+      },
+      {
+        "id": "18",
+        "subject_id": "9",
+        "teacher_id": "10",
+        "schedule": "Miércoles 14:00 - 16:00"
+      },
+      {
+        "id": "19",
+        "subject_id": "10",
+        "teacher_id": "8",
+        "schedule": "Jueves 08:00 - 10:00"
+      },
+      {
+        "id": "20",
+        "subject_id": "10",
+        "teacher_id": "9",
+        "schedule": "Viernes 12:00 - 14:00"
+      },
+      {
+        "id": "21",
+        "subject_id": "11",
+        "teacher_id": "10",
+        "schedule": "Lunes 10:00 - 12:00"
+      },
+      {
+        "id": "22",
+        "subject_id": "11",
+        "teacher_id": "8",
+        "schedule": "Martes 14:00 - 16:00"
+      },
+      {
+        "id": "23",
+        "subject_id": "12",
+        "teacher_id": "9",
+        "schedule": "Miércoles 08:00 - 10:00"
+      },
+      {
+        "id": "24",
+        "subject_id": "12",
+        "teacher_id": "10",
+        "schedule": "Jueves 12:00 - 14:00"
+      },
+      {
+        "id": "25",
+        "subject_id": "13",
+        "teacher_id": "8",
+        "schedule": "Viernes 10:00 - 12:00"
+      },
+      {
+        "id": "26",
+        "subject_id": "13",
+        "teacher_id": "9",
+        "schedule": "Lunes 14:00 - 16:00"
+      },
+      {
+        "id": "27",
+        "subject_id": "14",
+        "teacher_id": "10",
+        "schedule": "Martes 08:00 - 10:00"
+      },
+      {
+        "id": "28",
+        "subject_id": "14",
+        "teacher_id": "8",
+        "schedule": "Miércoles 12:00 - 14:00"
+      },
+      {
+        "id": "29",
+        "subject_id": "15",
+        "teacher_id": "9",
+        "schedule": "Jueves 10:00 - 12:00"
+      },
+      {
+        "id": "30",
+        "subject_id": "15",
+        "teacher_id": "10",
+        "schedule": "Viernes 14:00 - 16:00"
+      },
+      {
+        "id": "31",
+        "subject_id": "16",
+        "teacher_id": "8",
+        "schedule": "Lunes 08:00 - 10:00"
+      },
+      {
+        "id": "32",
+        "subject_id": "16",
+        "teacher_id": "9",
+        "schedule": "Martes 12:00 - 14:00"
+      },
+      {
+        "id": "33",
+        "subject_id": "17",
+        "teacher_id": "10",
+        "schedule": "Miércoles 10:00 - 12:00"
+      },
+      {
+        "id": "34",
+        "subject_id": "17",
+        "teacher_id": "8",
+        "schedule": "Jueves 14:00 - 16:00"
+      },
+      {
+        "id": "35",
+        "subject_id": "18",
+        "teacher_id": "9",
+        "schedule": "Viernes 08:00 - 10:00"
+      },
+      {
+        "id": "36",
+        "subject_id": "18",
+        "teacher_id": "10",
+        "schedule": "Lunes 12:00 - 14:00"
+      }
+    ]
+  }

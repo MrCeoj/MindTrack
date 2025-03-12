@@ -11,8 +11,9 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "nativewind-env.d.ts",
+    "context/AuthContext.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "nativewind-env.d.ts"
+    "expo-env.d.ts"
   ]
 }

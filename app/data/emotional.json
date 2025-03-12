@@ -1,0 +1,148 @@
+{
+  "emotional_status": [
+    {
+      "id": "1",
+      "student_id": "1",
+      "date": "2025-03-11",
+      "status": "Bien"
+    },
+    {
+      "id": "2",
+      "student_id": "1",
+      "date": "2025-03-10",
+      "status": "Mal"
+    },
+    {
+      "id": "3",
+      "student_id": "1",
+      "date": "2025-03-09",
+      "status": "Bien"
+    },
+    {
+      "id": "4",
+      "student_id": "1",
+      "date": "2025-03-08",
+      "status": "Mal"
+    },
+    {
+      "id": "5",
+      "student_id": "2",
+      "date": "2025-03-11",
+      "status": "Mal"
+    },
+    {
+      "id": "6",
+      "student_id": "2",
+      "date": "2025-03-10",
+      "status": "Bien"
+    },
+    {
+      "id": "7",
+      "student_id": "2",
+      "date": "2025-03-09",
+      "status": "Mal"
+    },
+    {
+      "id": "8",
+      "student_id": "2",
+      "date": "2025-03-08",
+      "status": "Bien"
+    },
+    {
+      "id": "9",
+      "student_id": "3",
+      "date": "2025-03-11",
+      "status": "Bien"
+    },
+    {
+      "id": "10",
+      "student_id": "3",
+      "date": "2025-03-10",
+      "status": "Mal"
+    },
+    {
+      "id": "11",
+      "student_id": "3",
+      "date": "2025-03-09",
+      "status": "Bien"
+    },
+    {
+      "id": "12",
+      "student_id": "3",
+      "date": "2025-03-08",
+      "status": "Mal"
+    },
+    {
+      "id": "13",
+      "student_id": "4",
+      "date": "2025-03-11",
+      "status": "Mal"
+    },
+    {
+      "id": "14",
+      "student_id": "4",
+      "date": "2025-03-10",
+      "status": "Bien"
+    },
+    {
+      "id": "15",
+      "student_id": "4",
+      "date": "2025-03-09",
+      "status": "Mal"
+    },
+    {
+      "id": "16",
+      "student_id": "4",
+      "date": "2025-03-08",
+      "status": "Bien"
+    },
+    {
+      "id": "17",
+      "student_id": "5",
+      "date": "2025-03-11",
+      "status": "Bien"
+    },
+    {
+      "id": "18",
+      "student_id": "5",
+      "date": "2025-03-10",
+      "status": "Mal"
+    },
+    {
+      "id": "19",
+      "student_id": "5",
+      "date": "2025-03-09",
+      "status": "Bien"
+    },
+    {
+      "id": "20",
+      "student_id": "5",
+      "date": "2025-03-08",
+      "status": "Mal"
+    },
+    {
+      "id": "21",
+      "student_id": "6",
+      "date": "2025-03-11",
+      "status": "Mal"
+    },
+    {
+      "id": "22",
+      "student_id": "6",
+      "date": "2025-03-10",
+      "status": "Bien"
+    },
+    {
+      "id": "23",
+      "student_id": "6",
+      "date": "2025-03-09",
+      "status": "Mal"
+    },
+    {
+      "id": "24",
+      "student_id": "6",
+      "date": "2025-03-08",
+      "status": "Bien"
+    }
+  ]
+}
