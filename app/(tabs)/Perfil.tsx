@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -6,9 +6,11 @@ import {
   Alert,
   Button,
   ScrollView,
+  AppState,
+  Platform,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { PieChart, ProgressChart } from "react-native-chart-kit";
+import { PieChart } from "react-native-chart-kit";
 import { router } from "expo-router";
 import {
   FaceFrownIcon,
@@ -16,6 +18,7 @@ import {
   PowerIcon,
 } from "react-native-heroicons/micro";
 import * as DocumentPicker from "expo-document-picker";
+import * as IntentLauncher from "expo-intent-launcher";
 import * as FileSystem from "expo-file-system";
 
 interface EmotionalStatus {
@@ -55,8 +58,8 @@ export default function Perfil() {
   const [allStatus, setAllStatus] = useState<EmotionalStatus[]>([]);
   const [emotionalStatus, setEmotionalStatus] = useState<EmotionalStatus[]>([]);
   const today = new Date().toISOString().split("T")[0];
-
   const [documents, setDocuments] = useState<Document[]>([]);
+  const appState = useRef(AppState.currentState);
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("profile");
@@ -89,8 +92,6 @@ export default function Perfil() {
 
     setAllStatus(jsonData.emotional);
     console.log("Todos los estados emocionales:", allStatus);
-
-    
   };
 
   const flterEmotional = () => {
@@ -101,7 +102,7 @@ export default function Perfil() {
 
     setEmotionalStatus(filtered);
     console.log("Estado emocional cargado:", filtered);
-  }
+  };
 
   const handleStatusClick = async (status: "Bien" | "Mal") => {
     const existingEntry = emotionalStatus.find(
@@ -133,15 +134,25 @@ export default function Perfil() {
     const filePath = FileSystem.documentDirectory + "documents.json";
     const fileInfo = await FileSystem.getInfoAsync(filePath);
 
+    console.log("🗂️ Ruta del archivo:", filePath);
+    console.log("📂 ¿Existe el archivo?:", fileInfo.exists);
+
     if (fileInfo.exists) {
       const jsonString = await FileSystem.readAsStringAsync(filePath);
-      const jsonData = JSON.parse(jsonString);
-      console.log("Documentos cargados:", jsonData.documents);
+      console.log("📄 Contenido del archivo JSON:", jsonString);
 
-      let filtrado = jsonData.documents.filter(
+      const jsonData = JSON.parse(jsonString);
+      console.log("📋 Documentos cargados:", jsonData);
+
+      const filtrado = jsonData.documents.filter(
         (doc: Document) => doc.student_id === profile?.id
       );
+
+      console.log("🎯 Documentos filtrados:", filtrado);
+
       setDocuments(filtrado);
+    } else {
+      console.log("❌ `documents.json` no encontrado.");
     }
   };
 
@@ -160,12 +171,23 @@ export default function Perfil() {
 
       const document = result.assets[0];
 
+      // Create a permanent copy of the file
+      const fileName = document.name;
+      const destinationUri = FileSystem.documentDirectory + fileName;
+
+      await FileSystem.copyAsync({
+        from: document.uri,
+        to: destinationUri,
+      });
+
+      console.log("✅ Documento copiado en:", destinationUri);
+
       const newDocument: Document = {
         id: (documents.length + 1).toString(),
         student_id: profile.id,
         date: new Date().toISOString(),
-        file_url: document.uri,
-        file_name: document.name,
+        file_url: destinationUri,
+        file_name: fileName,
       };
 
       const updatedDocuments = [...documents, newDocument];
@@ -175,7 +197,7 @@ export default function Perfil() {
 
       Alert.alert("Éxito", "Documento subido correctamente.");
     } catch (error) {
-      console.error("Error al seleccionar el documento:", error);
+      console.error("❌ Error al seleccionar el documento:", error);
       Alert.alert("Error", "Hubo un problema al subir el documento.");
     }
   };
@@ -186,9 +208,13 @@ export default function Perfil() {
 
     try {
       await FileSystem.writeAsStringAsync(filePath, jsonString);
-      console.log("Documentos guardados exitosamente en:", filePath);
+      console.log("✅ Documentos guardados exitosamente en:", filePath);
+
+      // Check file content immediately after saving
+      const fileContent = await FileSystem.readAsStringAsync(filePath);
+      console.log("📄 Archivo guardado con este contenido:", fileContent);
     } catch (error) {
-      console.error("Error al guardar documentos:", error);
+      console.error("❌ Error al guardar documentos:", error);
     }
   };
 
@@ -226,6 +252,35 @@ export default function Perfil() {
       legendFontSize: 15,
     },
   ];
+
+  const openDocument = async (doc: Document) => {
+    if (appState.current !== "active") {
+      Alert.alert("Error", "La aplicación no está en primer plano.");
+      return;
+    }
+
+    try {
+      const fileInfo = await FileSystem.getContentUriAsync(doc.file_url);
+      await IntentLauncher.startActivityAsync("android.intent.action.VIEW", {
+        data: fileInfo,
+        flags: 1,
+        type: "application/pdf",
+      });
+    } catch (error) {
+      console.error("Error opening document:", error);
+      Alert.alert("Error", "An error occurred while opening the document.");
+    }
+  };
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (nextAppState) => {
+      appState.current = nextAppState;
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -272,13 +327,21 @@ export default function Perfil() {
         <Text>❌ Mal: {((malCount * 100) / (bienCount + malCount)) | 0}%</Text>
       </View>
       <ScrollView style={styles.cardContainer}>
-        {documents.map((doc) => (
-          <View key={doc.id} style={styles.card}>
-            <Text>{doc.file_name}</Text>
-            <Text>{new Date(doc.date).toLocaleDateString()}</Text>
-            <Text>{doc.file_url}</Text>
-          </View>
-        ))}
+        {documents.length === 0 ? (
+          <Text>No documents available.</Text>
+        ) : (
+          documents.map((doc) => (
+            <View key={doc.id} style={styles.card}>
+              <Text style={styles.docTitle}>{doc.file_name}</Text>
+              <Text style={styles.docDate}>
+                {new Date(doc.date).toLocaleDateString()}
+              </Text>
+              <Text style={styles.docUrl} onPress={() => openDocument(doc)}>
+                {doc.file_url}
+              </Text>
+            </View>
+          ))
+        )}
       </ScrollView>
       <Button
         title="Subir evidencia médica"
@@ -320,5 +383,19 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 5,
     borderRadius: 8,
+  },
+  docTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  docDate: {
+    fontSize: 14,
+    color: "#660022",
+  },
+  docUrl: {
+    fontSize: 14,
+    color: "#0000FF",
+    fontStyle: "italic",
+    textDecorationLine: "underline",
   },
 });
